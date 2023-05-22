@@ -367,6 +367,45 @@ body {
 }
 
 
+.ant-timeline-item-label,
+.ant-timeline-item-content {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item-tail {
+  border-inline-start: 2px solid rgba(255, 255, 255, 0.5)
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item-head-blue {
+  border-color: #915EFF !important;
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item {
+  padding-bottom: 30px;
+}
+
+:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-top>.ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-bottom>.ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-top>div>.ant-tabs-nav::before,
+:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-bottom>div>.ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active div,
+.ant-tabs-tab.ant-tabs-tab-active {
+  color: #915EFF !important;
+  font-size: 20px !important;
+
+}
+
+.ant-tabs-tab div {
+  color: rgba(255, 255, 255, 0.5)
+}
+
+.ant-tabs-ink-bar {
+  background-color: white !important;
+}
 /* media queries */
 @media (min-width:330px) and (max-width: 550px) {
   .dropdown-content {

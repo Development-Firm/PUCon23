@@ -48,27 +48,34 @@ const About = () => {
         className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
       >
         <p>
-          FCIT ,one of the leading institutions in computing and information
-          technology proudly presents a thrilling multi-competition hackathon
-          PUCon'23 Unleash your coding skills at our 2 day hackathon! Join
-          fellow enthusiasts to solve real world challenges and showcase your
-          talent. You will be expecting 
+          Get ready to be part of the Most Anticipated  event of the year of <span className="font-bold text-[white]">FCIT</span> – <span className="font-bold text-[white]">PUCon'23!</span> This mega event promises to be a melting pot of knowledge,creativity, and inspiration. With participants and attendees coming from all corners of different universities of Pakistan.
+          PUCon'23 creates a vibrant and diverse community of tech enthusiasts. It's an unparalleled opportunity to connect with like-minded individuals, network with industry professionals, and forge valuable connections that can last a lifetime.
+          PUCon'23 is a great opportunity for students and professionals to showcase their skills and compete against the best in the world. The event is open  to all skill levels, so whether you are a beginner or an experienced competitor,
+          you are sure to find something to enjoy at PUCon'23.
+          <br />
+          Join us <span className="font-bold text-[white]"> at FCIT</span>,  PUCon'23, the Mega Event that brings together the brightest
+          minds and  enthusiasts from around the world! This  gathering is set to showcase a diverse range of competitions and challenges, ensuring an
+          unforgettable experience for participants and attendees alike.
+
+          <br />
+          <p>
+            <span className="text-[white] text-[18px] font-bold">Competitions Include:</span>
+            <br />
+            <ul>
+              <li>• Competitive Programming</li>
+              <li>• Mobile Hackathon</li>
+              <li>• Game Dev Hackathon</li>
+              <li>• PWN Capture the Flag</li>
+              <li>• Artificial Intelligence</li>
+              <li>• ESports</li>
+            </ul>
+          </p>
+          <br />
+          <p>
+            Mark your calendars on <span className="font-bold text-[white]"> 3rd and 4th june 2023</span>  and Get ready to be part of this extraordinary event that celebrates innovation, talent and the limitless potential of technology at  PUCon'23 and let your brilliance shine in the world. Stay tuned for Further Updates.
+          </p>
         </p>
-        <br/>
-        <ul>
-          <li>• Challenging Problem Statements</li>
-          <li>• Expert Mentors</li>
-          <li>• Collaborative environment</li>
-          <li>• Industry Links</li>
-          <li>• Prizes & Recognition</li>
-          <li>• Learning opportunities</li>
-        </ul>
-        <br/>
-        <p>
-        Open to all university students passionate about challenging
-        competitions. Don't miss out this exciting event.Let's redefine what's
-        possible!
-        </p>
+
       </motion.p>
 
       <div className="cardsm mt-20 flex flex-wrap gap-10">

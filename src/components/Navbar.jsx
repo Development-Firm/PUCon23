@@ -43,7 +43,7 @@ const Navbar=( { isExternalLinks , isRegisteration} ) => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='object-contain logo' style={{ width: '7rem' }} />
+          <img src={logo} alt='logo' className='object-contain logo' style={{ width: '4rem' }} />
 
         </Link>
 

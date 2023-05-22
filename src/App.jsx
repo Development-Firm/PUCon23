@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import Rules from "./components/Rules";
 import { artificial_intellegence, competitive_programming, esports_fifa, esports_tekken, game_design, mobile_app_hackathon, pwn_ctf, web_hackathon } from "./constants";
 import { useEffect } from "react";
+import EventTimeline from "./components/EventTimeline";
 
 
 const Home=() => {
@@ -21,6 +22,7 @@ const Home=() => {
           <Hero />
         </div>
       <About />
+      <EventTimeline />
       <Sponsors />
         <div className='relative z-0'>
           <Contact />

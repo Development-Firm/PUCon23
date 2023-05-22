@@ -42,7 +42,7 @@ const Rules=( { content } ) => {
         {content.rules.map( rule => <p>{rule}</p> )}
       </motion.p>
 
-      <motion.p
+      {content.registration&&<motion.p
         variants={fadeIn( "", "", 0.1, 1 )}
         className='mt-4 mb-[3rem] px-5 text-secondary text-[17px] max-w-7xl mx-auto leading-[30px]'
       >
@@ -51,8 +51,9 @@ const Rules=( { content } ) => {
         </motion.div>
         {content.registration.map( text => <p>{text}</p> )}
       </motion.p>
+      }
 
-      <motion.p
+      {content.evaluation&&<motion.p
         variants={fadeIn( "", "", 0.1, 1 )}
         className='mt-4 mb-[3rem] px-5 text-secondary text-[17px] max-w-7xl mx-auto leading-[30px]'
       >
@@ -60,9 +61,9 @@ const Rules=( { content } ) => {
           <h1 className={styles.sectionSubHead}>Evaluation</h1>
         </motion.div>
         {content.evaluation.map( text => <p>{text}</p> )}
-      </motion.p>
+      </motion.p>}
 
-      <motion.p
+      {content.dateAndTime&&<motion.p
         variants={fadeIn( "", "", 0.1, 1 )}
         className='mt-4 mb-[3rem] px-5 text-secondary text-[17px] max-w-7xl mx-auto leading-[30px]'
       >
@@ -70,7 +71,7 @@ const Rules=( { content } ) => {
           <h1 className={styles.sectionSubHead}>Date and Time</h1>
         </motion.div>
         {content.dateAndTime}
-      </motion.p>
+      </motion.p>}
 
       {content.prizePool&&<motion.p
         variants={fadeIn( "", "", 0.1, 1 )}
@@ -91,6 +92,13 @@ const Rules=( { content } ) => {
         }
       </motion.p>
       }
+      {content.note&&<motion.p
+        variants={fadeIn( "", "", 0.1, 1 )}
+        className='mt-4 mb-[3rem] px-5 text-[red] text-[13px] max-w-7xl mx-auto leading-[30px]'
+      >
+        <span>Note: </span>
+        {content.note}
+      </motion.p>}
 
       {/* <motion.p
         variants={fadeIn( "", "", 0.1, 1 )}
