@@ -84,7 +84,7 @@ const InfoModel = ({ modalContent, handleOk, handleCancel, isModalOpen }) => {
 
 const ApplicantTable = ({messageApi}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const messagesRef = collection(db, 'appfest')
+  const messagesRef = collection(db, 'registrations')
   const [applicants, setApplicants] = useState(null)
   const [modelData, setModelData] = useState(null)
   const { confirm } = Modal;
@@ -125,7 +125,7 @@ const ApplicantTable = ({messageApi}) => {
         content: 'We are processing your request, Please wait...',
         duration: 0
       } );
-      const docRef = doc(db, 'appfest', ID);
+      const docRef = doc(db, 'registrations', ID);
       const docc = await getDoc(docRef);
       let { member_1_email, member_1_name, competition, team_name }=docc.data()
       await updateDoc(docRef, { status: 'approved' });
@@ -150,7 +150,7 @@ const ApplicantTable = ({messageApi}) => {
         duration: 0
       } );
       // Get the image URL from the Firestore document
-      const docRef = await doc(db, 'appfest', ID)
+      const docRef = await doc(db, 'registrations', ID)
       // Delete the document from Firestore
       await deleteDoc(docRef)
       // If the image URL exists, delete the image from storage
