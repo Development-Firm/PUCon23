@@ -519,13 +519,23 @@ const Form4 = ({ form, fileList, setFileList, competition }) => {
       <tbody>
         <tr>
           <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Registration</td>
-          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{'1 * '+competitionInfo[competition]}</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{competitionInfo[competition].fee+'x 1'}</td>
           <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{competitionInfo[competition].fee}</td>
         </tr>
         <tr>
           <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Accomodation</td>
-          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>3</td>
-          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{competitionInfo[competition].fee}</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{"600 x 2"}</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{"1200"}</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}></td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Discount</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>20%</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}></td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Total</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>2000</td>
         </tr>
       </tbody>
     </table>
