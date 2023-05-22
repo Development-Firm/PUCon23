@@ -41,7 +41,7 @@ import { Alert } from "antd";
 import Marquee from "react-fast-marquee";
 import Compressor from "compressorjs";
 
-const appFestCollectionRef = collection(db, "appfest");
+const registrationsCollectionRef = collection(db, "registrations");
 
 const { Option } = Select;
 function getNumberArray(count) {
@@ -55,42 +55,42 @@ function getNumberArray(count) {
 }
 
 const competitionInfo = {
-  "Competitive Programming":{
+  "Competitive Programming": {
     cap: 100,
     fee: 1200,
     maxTeamCount: 3,
   },
-  "Web Development Hackathon":{
+  "Web Development Hackathon": {
     cap: 40,
     fee: 1500,
     maxTeamCount: 3,
   },
-  "Mobile Development Hackathon":{
+  "Mobile Development Hackathon": {
     cap: 20,
     fee: 1500,
     maxTeamCount: 3,
   },
-  "Artificial Intellegence":{
+  "Artificial Intellegence": {
     cap: 30,
     fee: 1500,
     maxTeamCount: 3,
   },
-  "Game Design":{
+  "Game Design": {
     cap: 20,
     fee: 1200,
     maxTeamCount: 3,
   },
-  "pwn CTF":{
+  "pwn CTF": {
     cap: 40,
     fee: 1200,
     maxTeamCount: 3,
   },
-  "Esports FIFA":{
+  "Esports FIFA": {
     cap: 70,
     fee: 500,
     maxTeamCount: 1,
   },
-  "Esports TEKKEN":{
+  "Esports TEKKEN": {
     cap: 70,
     fee: 500,
     maxTeamCount: 1,
@@ -98,7 +98,7 @@ const competitionInfo = {
 };
 
 const Form1 = ({ form, setlimitReach, limitReach }) => {
-  const messagesRef = collection(db, "appfest");
+  const messagesRef = collection(db, "registrations");
   const [competition, setCompetition] = useState(null);
 
   useEffect(() => {
@@ -156,7 +156,9 @@ const Form1 = ({ form, setlimitReach, limitReach }) => {
               onChange={(value) => setCompetition(value)}
             >
               {Object.keys(competitionInfo).map((e) => (
-                <Option value={e} key={e}>{e}</Option>
+                <Option value={e} key={e}>
+                  {e}
+                </Option>
               ))}
             </Select>
           </Form.Item>
@@ -172,23 +174,26 @@ const Form1 = ({ form, setlimitReach, limitReach }) => {
           </span>
         </p>
       )}
-      {!limitReach && (
+      {!limitReach && competition && (
         <p className="text-secondary registration-text-secondary text-[17px] max-w-5xl leading-[30px]">
           Registertion Fee:{" "}
-          <span className="font-bold">Rs. {competitionInfo[competition]?.fee}</span> per team
+          <span className="font-bold">
+            Rs. {competitionInfo[competition]?.fee}
+          </span>{" "}
+          per team
         </p>
       )}
     </>
   );
 };
 
-const Form2 = ({ form,competition }) => {
+const Form2 = ({ form, competition }) => {
   const [validityStatus, setValidityStatus] = useState({
     status: "success",
     message: "",
   });
   const onFinish = (values) => {};
-  const validateValue = (e) => {
+  const validateTeamCount = (e) => {
     const num = e.target.value;
     if (num == "") {
       setValidityStatus({
@@ -209,7 +214,8 @@ const Form2 = ({ form,competition }) => {
     form.resetFields();
   };
 
-  return ( <div className="form2sm mt-[100px] mb-20 ">
+  return (
+    <div className="form2sm mt-[100px] mb-20 ">
       <Form
         form={form}
         layout="vertical"
@@ -239,7 +245,7 @@ const Form2 = ({ form,competition }) => {
           label="No of team members"
           validateStatus={validityStatus.status}
           help={validityStatus.message}
-          onChange={validateValue}
+          onChange={validateTeamCount}
           rules={[
             {
               required: true,
@@ -260,17 +266,12 @@ const Form2 = ({ form,competition }) => {
   );
 };
 
-const Form3 = ({
-  form,
-  membersCount
-}) => {
+const Form3 = ({ form, membersCount }) => {
   let members = getNumberArray(membersCount);
   const onFinish = (values) => {};
   const onReset = () => {
     form.resetFields();
   };
-
- 
 
   return (
     <div className="form3sm mt-[100px] mb-20 ">
@@ -418,6 +419,10 @@ const Form3 = ({
 };
 
 const Form4 = ({ form, fileList, setFileList, competition }) => {
+  const [validityStatus, setValidityStatus] = useState({
+    status: "success",
+    message: "",
+  });
   const onImgChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
@@ -440,13 +445,116 @@ const Form4 = ({ form, fileList, setFileList, competition }) => {
   const onReset = () => {
     form.resetFields();
   };
+  const validateAccomodationCount = (e) => {
+    const num = e.target.value;
+    if (num <= competitionInfo[competition]?.maxTeamCount && num >= 0)
+      setValidityStatus({ status: "success", message: "" });
+    else
+      setValidityStatus({
+        status: "error",
+        message: `Members can be upto ${competitionInfo[competition].maxTeamCount}`,
+      });
+  };
+  const team = {
+    name: 'Team A',
+    participants: 5,
+    accommodations: 3,
+    price: 100,
+    discount: 20,
+  };
 
   return (
     <div className="form4sm mt-[100px] mb-20">
+      <Form layout="vertical">
+        <Row gutter={16}>
+          <Col className="gutter-row" span={12}>
+            <Form.Item
+              name="accomodation_count"
+              label="No of accomodations"
+              validateStatus={validityStatus.status}
+              help={validityStatus.message}
+              onChange={validateAccomodationCount}
+            >
+              <Input
+                placeholder="Enter no of accomodations"
+                size="large"
+                type="number"
+                max={competitionInfo[competition]?.maxTeamCount}
+                min={0}
+                defaultValue={0}
+              />
+            </Form.Item>
+          </Col>
+          <Col className="gutter-row" span={12}>
+          <Form.Item
+          name="promo_code"
+          label="Promo Code"
+          rules={[
+            {
+              type: "string",
+            },
+          ]}
+        >
+          <Input placeholder="PU001" size="large" />
+        </Form.Item>
+          </Col>
+        </Row>
+      </Form>
       <div className="reg">
-        <p className="text-white font-bold text-[22px] form4Text">
-          Payment Procedure:
-        </p>
+        <p className="text-white font-bold text-[22px] form4Text">Billing</p>
+        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <thead>
+        <tr>
+          <th style={{ backgroundColor: '#050816', color: 'white', border: '1px solid white', padding: 8 }}>
+            Items
+          </th>
+          <th style={{ backgroundColor: '#050816', color: 'white', border: '1px solid white', padding: 8 }}>
+            Quantity
+          </th>
+          <th style={{ backgroundColor: '#050816', color: 'white', border: '1px solid white', padding: 8 }}>
+            Price
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Registration</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{competitionInfo[competition].fee+'x 1'}</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{competitionInfo[competition].fee}</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Accomodation</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{"600 x 2"}</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>{"1200"}</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}></td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Discount</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>20%</td>
+        </tr>
+        <tr>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}></td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>Total</td>
+          <td style={{ border: '1px solid white', padding: 8, color: 'white' }}>2000</td>
+        </tr>
+      </tbody>
+    </table>
+        {/* <p className="text-secondary text-[14px] leading-[30px] mb-5 form4Text">
+          <ul className="form4Text">
+            {
+              <li>
+                Registertion Fee:{" "}
+                <span className="font-bold">Rs. {competitionInfo[competition]?.fee}</span>{" "}
+                per team
+              </li>
+            }
+          </ul>
+        </p> */}
+
+        {/*Add the table here!*/}
+      </div>
+      <div className="reg">
+        <p className="text-white font-bold text-[22px] form4Text">Payment:</p>
         <p className="text-secondary text-[14px] leading-[30px] mb-5 form4Text">
           <ul className="form4Text">
             <li>
@@ -458,20 +566,6 @@ const Form4 = ({ form, fileList, setFileList, competition }) => {
         </p>
       </div>
 
-      <div className="reg">
-        <p className="text-white font-bold text-[22px] form4Text">Your Dues:</p>
-        <p className="text-secondary text-[14px] leading-[30px] mb-5 form4Text">
-          <ul className="form4Text">
-            {
-              <li>
-                Registertion Fee:{" "}
-                <span className="font-bold">Rs. {competitionInfo[competition]?.fee}</span>{" "}
-                per team
-              </li>
-            }
-          </ul>
-        </p>
-      </div>
       <ImgCrop rotationSlider>
         <Upload
           listType="picture-card"
@@ -586,7 +680,7 @@ const StepsForm = () => {
 
     try {
       setFileList([]);
-      await addDoc(appFestCollectionRef, {
+      await addDoc(registrationsCollectionRef, {
         createdAt: serverTimestamp(),
         ...form1.getFieldsValue(),
         ...form2.getFieldsValue(),
@@ -635,7 +729,7 @@ const StepsForm = () => {
   const contentStyle = {
     color: token.colorTextTertiary,
     marginTop: 16,
-    minHeight: "200px"
+    minHeight: "200px",
   };
   return (
     <>
@@ -662,7 +756,7 @@ const StepsForm = () => {
           className="form2Container"
           style={{ ...contentStyle, display: current === 1 ? "block" : "none" }}
         >
-          <Form2 form={form2} competition={form1.getFieldValue().competition}/>
+          <Form2 form={form2} competition={form1.getFieldValue().competition} />
         </div>
 
         <div

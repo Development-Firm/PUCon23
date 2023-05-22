@@ -82,7 +82,7 @@ const InfoModel=( { modalContent, handleOk, handleCancel, isModalOpen } ) => {
 
 const ApplicantTable=( { messageApi } ) => {
   const [ isModalOpen, setIsModalOpen ]=useState( false )
-  const messagesRef=collection( db, 'appfest' )
+  const messagesRef=collection( db, 'registrations' )
   const [ applicants, setApplicants ]=useState( null )
   const [ modelData, setModelData ]=useState( null )
   const { confirm }=Modal;
