@@ -1,17 +1,13 @@
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { About, Contact, Hero, Navbar, Sponsors, StarsCanvas } from "./components";
 import Applicants from "./components/dashboard/Applicants";
-import CodeBeesTeam from "./components/dashboard/CodeBeesTeam";
 import Dashboard from "./components/dashboard/Dashboard";
-import MobileAppTeam from "./components/dashboard/MobileAppTeam";
-import WebTeam from "./components/dashboard/WebTeam";
 import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import Rules from "./components/Rules";
 import { artificial_intellegence, competitive_programming, esports_fifa, esports_tekken, game_design, mobile_app_hackathon, pwn_ctf, web_hackathon } from "./constants";
-import { useEffect } from "react";
 import EventTimeline from "./components/EventTimeline";
+import ApprovedTeams from "./components/dashboard/ApprovedTeams";
 
 
 const Home=() => {
@@ -51,16 +47,21 @@ const App=() => {
           exact
           path='/dashboard/'
           element={
-            <ProtectedRoute >
+            // <ProtectedRoute >
             <Dashboard />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         >
           <Route exact path="" element={<Applicants />} />
           <Route exact path="applicants" element={<Applicants />} />
-          <Route exact path="approved_teams/web" element={<WebTeam />} />
-          <Route exact path="approved_teams/mobile" element={<MobileAppTeam />} />
-          <Route exact path="approved_teams/code" element={<CodeBeesTeam />} />
+          <Route exact path="approved_teams/web" element={<ApprovedTeams competitionType={'Web Development Hackathon'} />} />
+          <Route exact path="approved_teams/mobile" element={<ApprovedTeams competitionType={'Mobile Development Hackathon'} />} />
+          <Route exact path="approved_teams/cp" element={<ApprovedTeams competitionType={'Competitive Programming'} />} />
+          <Route exact path="approved_teams/ai" element={<ApprovedTeams competitionType={'Artificial Intellegence'} />} />
+          <Route exact path="approved_teams/ctf" element={<ApprovedTeams competitionType={'pwn CTF'} />} />
+          <Route exact path="approved_teams/game_design" element={<ApprovedTeams competitionType={'Game Design'} />} />
+          <Route exact path="approved_teams/esports/fifa" element={<ApprovedTeams competitionType={'Esports FIFA'} />} />
+          <Route exact path="approved_teams/esports/tekken" element={<ApprovedTeams competitionType={'Esports TEKKEN'} />} />
         </Route>
 
       </Routes>

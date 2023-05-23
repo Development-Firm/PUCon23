@@ -420,6 +420,21 @@ body {
 .ant-tabs-ink-bar {
   background-color: white !important;
 }
+.ant-input-group-addon button,
+button.clear_btn {
+  background-color: #915EFF !important;
+  outline-color: #915EFF;
+  border-color: #915EFF;
+}
+
+.ant-input-group-addon button:hover,
+button.clear_btn:hover {
+  background-color: #874afe !important;
+  outline-color: #874afe !important;
+  border-color: #874afe !important;
+}
+
+button.clear_btn {}
 
 /* media queries */
 @media (min-width:330px) and (max-width: 550px) {

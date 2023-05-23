@@ -76,7 +76,7 @@ const services = [
     link: '/competitions/cp'
   },
   {
-    title: 'Game Jam',
+    title: 'Game Design',
     icon: game_jamp,
     link: '/competitions/gd'
   },

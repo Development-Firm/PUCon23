@@ -31,6 +31,7 @@ const { Search }=Input
 
 const InfoModel = ({ modalContent, handleOk, handleCancel, isModalOpen }) => {
   const { Panel } = Collapse
+  console.log( modalContent, new Date( modalContent.createdAt.seconds ) )
   return (
     <Modal
       title={modalContent.team_name}
@@ -75,6 +76,17 @@ const InfoModel = ({ modalContent, handleOk, handleCancel, isModalOpen }) => {
           )
         })}
       </Collapse>
+      <Descriptions title="Other details" style={{ marginTop: '1.5rem' }} size={'default'} extra={<Button type="primary">Edit</Button>}>
+        <Descriptions.Item label="Institute">{modalContent.institute}</Descriptions.Item>
+        <Descriptions.Item label="Team Lead">{modalContent.member_1_name}</Descriptions.Item>
+        <Descriptions.Item label="Accomodation">{Number( modalContent.accomodation_count )? `${Number( modalContent.accomodation_count )} persons`:'No accomodation'}</Descriptions.Item>
+        <Descriptions.Item label="Promo Code">{modalContent.promo_code}</Descriptions.Item>
+        <Descriptions.Item label="Amount Paid">{modalContent.total} PKR</Descriptions.Item>
+        <Descriptions.Item label="Status"><span className='text-[red]'>{modalContent.status}</span></Descriptions.Item>
+        <Descriptions.Item label="Competition">{modalContent.competition}</Descriptions.Item>
+        {/* <Descriptions.Item label="Applied on">{new Date( modalContent.createdAt.nanoseconds ).getDate()}</Descriptions.Item> */}
+      </Descriptions>
+      <h4 className='font-[600] text-[16px]'>Receipt</h4>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem',marginBottom:'2rem' }}>
         <Image width={200} src={modalContent.imageUrl} />
       </div>
@@ -97,11 +109,6 @@ const ApplicantTable = ({messageApi}) => {
   const handleChange=( pagination, filters, sorter, data ) => {
     setFilteredInfo( filters );
     setFilteredCount( data.currentDataSource.length )
-  };
-  const clearFilters=() => {
-    setFilteredInfo( {} );
-    setFilteredCount( null )
-
   };
   const showModal = () => {
     setIsModalOpen(true)
@@ -238,9 +245,10 @@ const ApplicantTable = ({messageApi}) => {
       let i=1;
       snapshot.forEach( ( doc ) => {
         let campus=doc.data().member_1_email[ 2 ]==='d'|| doc.data().member_1_email[ 2 ]==='D'||doc.data().member_1_email[ 7 ]==='5'? 'NC':'OC';
+        console.log( '------->', doc.data() )
         applicants.push( {
           count: i,
-          campus,
+          institute: doc.data().institute,
           teamName: doc.data().team_name,
           noOfMembers: doc.data().team_members_count,
           teamLead: doc.data().member_1_name,
@@ -260,7 +268,7 @@ const ApplicantTable = ({messageApi}) => {
 
   useEffect( () => {
     if ( searchedText ) {
-      setFilteredApplicants( applicants.filter( el => el.teamName.toLowerCase().includes( searchedText ) ) )
+      setFilteredApplicants( applicants.filter( el => el.teamName.toLowerCase().includes( searchedText )||el.institute.toLowerCase().includes( searchedText ) ) )
     }
     else {
       setFilteredApplicants( [] )
@@ -288,55 +296,53 @@ const ApplicantTable = ({messageApi}) => {
       key: 'teamLead',
     },
     {
-      title: 'Campus',
-      dataIndex: 'campus',
-      key: 'campus',
+      title: 'Institue',
+      dataIndex: 'institute',
+      key: 'institute',
       width: '10%',
 
-      filters: [
-        {
-          text: 'Old Campus',
-          value: 'OC',
-        },
-        {
-          text: 'New Campus',
-          value: 'NC',
-        },
+      // filters: [
+      //   {
+      //     text: 'FAST',
+      //     value: 'fast, nuces,national university of computer and emerging sciences ',
+      //   },
+      //   {
+      //     text: 'PUCIT',
+      //     value: 'punjab university college of information technology, pucit, fcit, university of the punjab ',
+      //   },
+      //   {
+      //     text: 'NUST',
+      //     value: 'nust, national university of sciences and technology, national university of sciences & technology',
+      //   },
+      //   {
+      //     text: 'ITU',
+      //     value: 'itu, information technology university',
+      //   },
+      //   {
+      //     text: 'COMSATS',
+      //     value: 'comsats',
+      //   },
+      //   {
+      //     text: 'Riphah International University',
+      //     value: 'riphah international university',
+      //   },
+      //   {
+      //     text: 'Bahria University',
+      //     value: 'bahria university',
+      //   },
 
-      ],
-      filteredValue: filteredInfo.campus||null,
-      onFilter: ( value, record ) => {
-        return record.campus.includes( value );
-      },
-      ellipsis: true,
+      // ],
+      // filteredValue: filteredInfo.campus||null,
+      // onFilter: ( value, record ) => {
+      //   console.log( record.institute.toLowerCase(), value, value.includes( record.institute.toLowerCase() ) )
+      //   return record.institute.toLowerCase().includes( value );
+      // },
+      // ellipsis: true,
     },
     {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
-      filters: [
-        {
-          text: 'F19',
-          value: 'f19',
-        },
-        {
-          text: 'F20',
-          value: 'f20',
-        },
-        {
-          text: 'F21',
-          value: 'f21',
-        },
-        {
-          text: 'F22',
-          value: 'f22',
-        },
-
-      ],
-      filteredValue: filteredInfo.email||null,
-      onFilter: ( value, record ) => {
-        return record.email.includes( value );
-      },
       ellipsis: true,
     },
     {
@@ -424,12 +430,11 @@ const ApplicantTable = ({messageApi}) => {
       <div className=''>
         <Search
           size='large'
-          placeholder='Start searching by Team name'
+          placeholder='Search by team name or institute'
           style={{ marginBottom: '0.3rem', width: '35rem' }}
           enterButton
           onChange={onSearch}
         />
-        <Button className='clear_btn' onClick={clearFilters}>Clear all filters</Button>
        { applicants &&<Button className='clear_btn'>
         <CSVLink
               filename={"Applicants.csv"}

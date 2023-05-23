@@ -34,6 +34,7 @@ const Dashboard=() => {
       )
     }
   ]
+  console.log( '----', location.pathname )
 
   return (
     <>
@@ -94,12 +95,12 @@ const Dashboard=() => {
                           to='/dashboard/approved_teams/web'
                           style={{ textDecoration: 'none', color: 'white' }}
                           className={`${location.pathname.endsWith( 'web' )||
-                            location.pathname.includes( 'web' )
+                            location.pathname.endsWith( 'web' )
                             ? 'nested_side_active'
                             :''
                             }`}
                         >
-                          Web Hackathon
+                          Web Development Hackathon
                         </Link>
                       </li>
                       <li className='nested_item'>
@@ -107,25 +108,90 @@ const Dashboard=() => {
                           to='/dashboard/approved_teams/mobile'
                           style={{ textDecoration: 'none', color: 'white' }}
                           className={`${location.pathname.endsWith( 'mobile' )||
-                            location.pathname.includes( 'mobile' )
+                            location.pathname.endsWith( 'mobile' )
                             ? 'nested_side_active'
                             :''
                             }`}
                         >
-                          Mobile Hackathon
+                          Mobile Development Hackathon
                         </Link>
                       </li>
                       <li className='nested_item'>
                         <Link
-                          to='/dashboard/approved_teams/code'
+                          to='/dashboard/approved_teams/cp'
                           style={{ textDecoration: 'none', color: 'white' }}
                           className={`${location.pathname.endsWith( 'code' )||
-                            location.pathname.includes( 'code' )
+                            location.pathname.endsWith( 'cp' )
                             ? 'nested_side_active'
                             :''
                             }`}
                         >
-                          Code Bees
+                          Competitive Programming
+                        </Link>
+                      </li>
+                      <li className='nested_item'>
+                        <Link
+                          to='/dashboard/approved_teams/ai'
+                          style={{ textDecoration: 'none', color: 'white' }}
+                          className={`${location.pathname.endsWith( 'code' )||
+                            location.pathname.endsWith( 'ai' )
+                            ? 'nested_side_active'
+                            :''
+                            }`}
+                        >
+                          Artificial Intelligence
+                        </Link>
+                      </li>
+                      <li className='nested_item'>
+                        <Link
+                          to='/dashboard/approved_teams/ctf'
+                          style={{ textDecoration: 'none', color: 'white' }}
+                          className={`${location.pathname.endsWith( 'code' )||
+                            location.pathname.endsWith( 'ctf' )
+                            ? 'nested_side_active'
+                            :''
+                            }`}
+                        >
+                          PWN CTF
+                        </Link>
+                      </li>
+                      <li className='nested_item'>
+                        <Link
+                          to='/dashboard/approved_teams/game_design'
+                          style={{ textDecoration: 'none', color: 'white' }}
+                          className={`${location.pathname.endsWith( 'code' )||
+                            location.pathname.endsWith( 'game_design' )
+                            ? 'nested_side_active'
+                            :''
+                            }`}
+                        >
+                          Game Design
+                        </Link>
+                      </li>
+                      <li className='nested_item'>
+                        <Link
+                          to='/dashboard/approved_teams/esports/fifa'
+                          style={{ textDecoration: 'none', color: 'white' }}
+                          className={`${location.pathname.endsWith( 'code' )||
+                            location.pathname.endsWith( 'fifa' )
+                            ? 'nested_side_active'
+                            :''
+                            }`}
+                        >
+                          ESports Fifa
+                        </Link>
+                      </li>
+                      <li className='nested_item'>
+                        <Link
+                          to='/dashboard/approved_teams/esports/tekken'
+                          style={{ textDecoration: 'none', color: 'white' }}
+                          className={`${location.pathname.endsWith( 'code' )||
+                            location.pathname.endsWith( 'tekken' )
+                            ? 'nested_side_active'
+                            :''
+                            }`}
+                        >
+                          ESports Tekken
                         </Link>
                       </li>
 
@@ -138,7 +204,7 @@ const Dashboard=() => {
                   <Link
                     to='/dashboard/applicants'
                     style={{ textDecoration: 'none', color: 'black' }}
-                    className={`${location.pathname.endsWith( 'applicants' )
+                    className={`${location.pathname.endsWith( 'applicants' )||location.pathname.endsWith( 'dashboard/' )||location.pathname.endsWith( 'dashboard' )
                       ? 'side_active'
                       :''
                       }`}
