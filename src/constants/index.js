@@ -275,7 +275,7 @@ network with fellow enthusiasts, and leave an indelible mark in the competitive 
 }
 
 const game_design = {
-  heading: 'Game Jam.',
+  heading: 'Game Design.',
   introduction: `Have you ever wondered who comes up with all these epic game ideas? Who creates
   these immersive experiences which keeps millions of people on the edge of their seats while
   playing a game? Do these game development companies have magical powers or is there actually
@@ -309,7 +309,8 @@ TO WIN CASH PRIZES!!!`,
     `• 3 pm - 3:30 pm: Winner and Runners up Announcement + Certificate Distribution`
   ],
   dateAndTime: `Competition will be held on June 3rd, Saturday, from 9:30 AM to Sunday 3:00 PM. This Competition provides a great opportunity for participants to showcase your talent and gain valuable experience.`,
-  prizePool: ['15,000', '10,000']
+  prizePool: [ '15,000', '10,000' ],
+  note: `It's a non-coding competition, you have to give presentation about the game you designed. Mentorship will be provided to teams by professionals from mindstorm. Soft copies of help material will also be provided to all teams.`,
 }
 
 const artificial_intellegence = {

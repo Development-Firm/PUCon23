@@ -47,9 +47,9 @@ const App=() => {
           exact
           path='/dashboard/'
           element={
-            <ProtectedRoute >
+            // <ProtectedRoute >
             <Dashboard />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         >
           <Route exact path="" element={<Applicants />} />
