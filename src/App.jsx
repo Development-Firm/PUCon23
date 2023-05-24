@@ -19,7 +19,7 @@ const Home=() => {
         </div>
       <About />
       <EventTimeline />
-      <Sponsors />
+      {/* <Sponsors /> */}
         <div className='relative z-0'>
           <Contact />
           <StarsCanvas />

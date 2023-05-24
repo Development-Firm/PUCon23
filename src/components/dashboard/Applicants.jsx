@@ -140,7 +140,7 @@ const ApplicantTable = ({messageApi}) => {
       team_name=team_name.split( ' ' ).map( word => word.charAt( 0 ).toUpperCase()+word.slice( 1 ) ).join( ' ' );
       const firstName = member_1_name.split(' ')[0].charAt(0).toUpperCase() + member_1_name.split(' ')[0].slice(1);
       messageApi.destroy()
-      sendApprovalEmail( member_1_email, firstName, competition, team_name );
+      sendApprovalEmail( member_1_email, team_name, member_1_name );
     } catch (err) {
       messageApi.open({
         type: 'error',

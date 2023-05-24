@@ -2,18 +2,37 @@ import emailjs from "@emailjs/browser";
 import { message } from "antd";
 
 
-const sendPendingEmail=( to_email, to_name ) => {
+const sendPendingEmail=( to_email,
+  invoice_no,
+  invoice_date,
+  check_no,
+  team_name,
+  team_count,
+  accomodation_count,
+  accomodation_amount,
+  competition,
+  paid_amount,
+  total_amount ) => {
   // to_name ------> Team name
   // to_email -----> Team lead email
   emailjs
     .send(
-      'service_gmg06wv',
-      'template_c7wdfce',
+      'service_rv9090c',
+      'template_nx3ap04',
       {
-        to_name,
         to_email,
+        invoice_no,
+        invoice_date,
+        check_no,
+        team_name,
+        team_count,
+        accomodation_count,
+        accomodation_amount,
+        competition,
+        paid_amount,
+        total_amount
       },
-      'W9tc9Lc4BB8qAK4qt'
+      'ylFbuYIhL6NREqKkG'
     )
     .then(
       () => {

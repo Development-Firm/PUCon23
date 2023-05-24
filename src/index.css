@@ -265,17 +265,15 @@
 .ant-steps-item-tail {
   border-color: red !important;
 }
-
-:where(.css-dev-only-do-not-override-htwhyh).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after {
-  background-color: white;
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after {
+  background-color: white !important;
 }
-
-:where(.css-dev-only-do-not-override-htwhyh).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::before {
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::before {
   background-color: red !important;
 }
 
 .ant-upload {
-  background-color: white;
+  background-color: white !important;
 }
 
 body {
@@ -386,23 +384,22 @@ body {
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.2rem;
 }
-
-:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item-tail {
+.ant-timeline .ant-timeline-item-tail {
   border-inline-start: 2px solid rgba(255, 255, 255, 0.5)
 }
 
-:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item-head-blue {
+.ant-timeline .ant-timeline-item-head-blue {
   border-color: #915EFF !important;
 }
 
-:where(.css-dev-only-do-not-override-htwhyh).ant-timeline .ant-timeline-item {
+.ant-timeline .ant-timeline-item {
   padding-bottom: 30px;
 }
 
-:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-top>.ant-tabs-nav::before,
-:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-bottom>.ant-tabs-nav::before,
-:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-top>div>.ant-tabs-nav::before,
-:where(.css-dev-only-do-not-override-htwhyh).ant-tabs-bottom>div>.ant-tabs-nav::before {
+.ant-tabs-top>.ant-tabs-nav::before,
+.ant-tabs-bottom>.ant-tabs-nav::before,
+.ant-tabs-top>div>.ant-tabs-nav::before,
+.ant-tabs-bottom>div>.ant-tabs-nav::before {
   border-bottom: none !important;
 }
 
@@ -433,7 +430,13 @@ button.clear_btn:hover {
   outline-color: #874afe !important;
   border-color: #874afe !important;
 }
+.ant-modal-footer button.ant-btn-primary {
+  background-color: #915EFF !important;
+}
 
+.ant-modal-footer button.ant-btn-default {
+  color: black !important
+}
 button.clear_btn {}
 
 /* media queries */

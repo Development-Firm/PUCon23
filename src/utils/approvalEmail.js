@@ -2,21 +2,20 @@ import emailjs from "@emailjs/browser";
 import { message } from "antd";
 
 
-const sendApprovalEmail=( to_email, to_name, event, team ) => {
+const sendApprovalEmail=( to_email, team, team_lead ) => {
   // to_name ------> Team name
   // to_email -----> Team lead email
   // event -----> event
   emailjs
     .send(
-      'service_j6o8fho',
-      'template_6twl2e1',
+      'service_rv9090c',
+      'template_09oeggf',
       {
-        to_name,
         to_email,
-        event,
-        team
+        team,
+        team_lead
       },
-      '0eWoErcR7SUWIv7XC'
+      'ylFbuYIhL6NREqKkG'
     )
     .then(
       () => {

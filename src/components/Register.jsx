@@ -882,7 +882,27 @@ const StepsForm = () => {
       })
       messageApi.destroy()
       // registrationStatusMessage()
-      sendPendingEmail(member_1_email, team_name)
+      let invoice_no=Math.floor( Math.random()*900 )+100;
+      let check_no=Math.floor( Math.random()*900 )+100;
+
+      let currentDate=new Date();
+      let day=String( currentDate.getDate() ).padStart( 2, '0' );
+      let month=String( currentDate.getMonth()+1 ).padStart( 2, '0' );
+      let year=currentDate.getFullYear();
+      let invoice_date=day+'-'+month+'-'+year;
+      let competition_amount=competitionInfo[ form1.getFieldValue( 'competition' ) ].fee
+
+      console.log( {
+        createdAt: serverTimestamp(),
+        ...form1.getFieldsValue(),
+        ...form2.getFieldsValue(),
+        ...form3.getFieldsValue(),
+        ...form4.getFieldsValue(),
+        total,
+        imageUrl,
+        status: 'pending'
+      } )
+      sendPendingEmail( member_1_email, invoice_no, invoice_date, check_no, team_name, form2.getFieldValue( 'team_members_count' ), form4.getFieldValue( 'accomodation_count' ), 600, form1.getFieldValue( 'competition' ), competition_amount, total )
       form1.resetFields()
       form2.resetFields()
       form3.resetFields()
