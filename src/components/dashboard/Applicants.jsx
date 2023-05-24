@@ -30,8 +30,7 @@ const { Search }=Input
 
 
 const InfoModel = ({ modalContent, handleOk, handleCancel, isModalOpen }) => {
-  const { Panel } = Collapse
-  console.log( modalContent, new Date( modalContent.createdAt.seconds ) )
+  const { Panel }=Collapse
   return (
     <Modal
       title={modalContent.team_name}
@@ -244,8 +243,7 @@ const ApplicantTable = ({messageApi}) => {
       let applicants = []
       let i=1;
       snapshot.forEach( ( doc ) => {
-        let campus=doc.data().member_1_email[ 2 ]==='d'|| doc.data().member_1_email[ 2 ]==='D'||doc.data().member_1_email[ 7 ]==='5'? 'NC':'OC';
-        console.log( '------->', doc.data() )
+        let campus=doc.data().member_1_email[ 2 ]==='d'||doc.data().member_1_email[ 2 ]==='D'||doc.data().member_1_email[ 7 ]==='5'? 'NC':'OC';
         applicants.push( {
           count: i,
           institute: doc.data().institute,

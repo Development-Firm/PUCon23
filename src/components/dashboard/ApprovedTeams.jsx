@@ -29,7 +29,6 @@ const { Search }=Input
 
 const InfoModel=( { modalContent, handleOk, handleCancel, isModalOpen } ) => {
   const { Panel }=Collapse
-  console.log( '---->', modalContent )
   return (
     <Modal
       title={modalContent.team_name}

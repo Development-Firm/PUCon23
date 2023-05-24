@@ -490,8 +490,7 @@ const Form4 = ({
     }
   }
   const validatePromoCode = e => {
-    const promo = e.target.value?.toLowerCase()
-    console.log(promo)
+    const promo=e.target.value?.toLowerCase()
     if (!promo || promoDetails[promo]) {
       setPromoDiscount(promoDetails[promo])
       setPromoValidityStatus({ status: 'success', message: '' })
@@ -870,7 +869,7 @@ const StepsForm = () => {
 
     try {
       setFileList([])
-      await addDoc(registrationsCollectionRef, {
+      let doc={
         createdAt: serverTimestamp(),
         ...form1.getFieldsValue(),
         ...form2.getFieldsValue(),
@@ -879,7 +878,16 @@ const StepsForm = () => {
         total,
         imageUrl,
         status: 'pending'
-      })
+      }
+
+      if ( !doc[ "promo_code" ] ) {
+        doc[ "promo_code" ]=""
+      }
+
+      if ( !doc[ "accomodation_count" ] ) {
+        doc[ "accomodation_count" ]=0
+      }
+      await addDoc( registrationsCollectionRef, doc )
       messageApi.destroy()
       // registrationStatusMessage()
       let invoice_no=Math.floor( Math.random()*900 )+100;
@@ -892,16 +900,7 @@ const StepsForm = () => {
       let invoice_date=day+'-'+month+'-'+year;
       let competition_amount=competitionInfo[ form1.getFieldValue( 'competition' ) ].fee
 
-      console.log( {
-        createdAt: serverTimestamp(),
-        ...form1.getFieldsValue(),
-        ...form2.getFieldsValue(),
-        ...form3.getFieldsValue(),
-        ...form4.getFieldsValue(),
-        total,
-        imageUrl,
-        status: 'pending'
-      } )
+
       sendPendingEmail( member_1_email, invoice_no, invoice_date, check_no, team_name, form2.getFieldValue( 'team_members_count' ), form4.getFieldValue( 'accomodation_count' ), 600, form1.getFieldValue( 'competition' ), competition_amount, total )
       form1.resetFields()
       form2.resetFields()
