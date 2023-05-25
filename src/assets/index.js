@@ -1,4 +1,5 @@
 import logo from './mark_colored.png'
+import logoHorizontal from './logo.png'
 import fullLogo from './complete_logo.png'
 import backend from './backend.png'
 import web_hack from './web_hack.png'
@@ -82,5 +83,6 @@ export {
   ctf,
   game,
   game_jamp,
-  ai
+  ai,
+  logoHorizontal
 }

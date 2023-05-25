@@ -19,18 +19,17 @@ const Hero=() => {
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full counter_gradient_color' />
           <div className='w-1 sm:h-60 h-30 violet-gradient' />
-        </div>
-
+          </div>
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
             Welcome to <span className='hero_text'>PUCon'23</span>
           </h1>
           <p className={`${styles.heroSubText}  text-white-100`}>
-            June 2nd, 2023 <br className='sm:block hidden' />
+              June 3rd, 2023 <br className='sm:block hidden' />
             Punjab University College of Information Technology
           </p>
           <div>
-            <CountdownTimer targetDate={"1 June, 2023, 12:00 AM"} />
+              <CountdownTimer targetDate={"2 June, 2023, 12:00 AM"} />
           </div>
         </div>
       </div>

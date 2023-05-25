@@ -109,6 +109,11 @@ const ApplicantTable = ({messageApi}) => {
     setFilteredInfo( filters );
     setFilteredCount( data.currentDataSource.length )
   };
+  const clearFilters=() => {
+    setFilteredInfo( {} );
+    setFilteredCount( null )
+
+  };
   const showModal = () => {
     setIsModalOpen(true)
   }
@@ -349,16 +354,36 @@ const ApplicantTable = ({messageApi}) => {
       key: 'competition',
       filters: [
         {
-          text: 'Code Bees',
-          value: 'code',
+          text: 'Competitive Programming',
+          value: 'Competitive Programming',
         },
         {
-          text: 'Web Hackathon',
-          value: 'web',
+          text: 'Web Development Hackathon',
+          value: 'Web Development Hackathon',
         },
         {
-          text: 'Mobile Hackathon',
-          value: 'mobile',
+          text: 'Mobile Development Hackathon',
+          value: 'Mobile Development Hackathon',
+        },
+        {
+          text: 'Artificial Intellegence',
+          value: 'Artificial Intellegence',
+        },
+        {
+          text: 'Game Design',
+          value: 'Game Design',
+        },
+        {
+          text: 'pwn CTF',
+          value: 'pwn CTF',
+        },
+        {
+          text: 'Esports FIFA',
+          value: 'Esports FIFA',
+        },
+        {
+          text: 'Esports TEKKEN',
+          value: 'Esports TEKKEN',
         },
       ],
       filteredValue: filteredInfo.competition||null,
@@ -433,6 +458,7 @@ const ApplicantTable = ({messageApi}) => {
           enterButton
           onChange={onSearch}
         />
+        <Button className='clear_btn' onClick={clearFilters}>Clear all filters</Button>
        { applicants &&<Button className='clear_btn'>
         <CSVLink
               filename={"Applicants.csv"}

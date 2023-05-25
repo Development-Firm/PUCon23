@@ -438,19 +438,25 @@ button.clear_btn:hover {
   color: black !important
 }
 button.clear_btn {}
+.logo {
+  width: 10rem !important
+}
+
+.ant-table-filter-dropdown-btns button {
+  background-color: #915EFF !important;
+  color: white;
+}
 
 /* media queries */
 @media (min-width:330px) and (max-width: 550px) {
   .dropdown-content {
     min-width: 160px;
   }
-
   .dropdown-content a,
   .dropdown-content .links {
     padding: 8px 12px;
     font-size: 14px;
   }
-
   .reg_div {
     display: hidden;
   }
@@ -558,7 +564,7 @@ button.clear_btn {}
   }
 
   .logo {
-    width: 2.5rem !important;
+    width: 8rem !important;
   }
 
   .navbar {
@@ -620,7 +626,7 @@ button.clear_btn {}
   }
 
   .logo {
-    width: 6rem !important;
+    width: 8rem !important;
   }
 
   .nextFormBtn {

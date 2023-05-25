@@ -12,7 +12,7 @@ const { TabPane } = Tabs
 const DayOneTimeline = [
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM-10:15 AM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -22,7 +22,7 @@ const DayOneTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>10:30 AM-6:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>10:30 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -35,7 +35,7 @@ const DayOneTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>11:00 AM-1:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>11:00 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -45,7 +45,7 @@ const DayOneTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>1:30 PM-2:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>1:30 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -57,7 +57,7 @@ const DayOneTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px]  font-bold'>3:00 PM-5:00 PM</p>
+      <p className='text-[#915EFF] text-[16px]  font-bold'>3:00 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -67,7 +67,7 @@ const DayOneTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>7:00 PM-8:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>7:00 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -81,7 +81,7 @@ const DayOneTimeline = [
 const DayTwoTimeline = [
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM-3:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -91,7 +91,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM-1:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>9:30 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -102,7 +102,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>10:00 AM-1:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>10:00 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -112,7 +112,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>10:30 AM-6:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>10:30 AM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -122,7 +122,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>1:30 PM-2:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>1:30 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -133,7 +133,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>5:30 PM-6:30 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>5:30 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -143,7 +143,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>6:30 PM-7:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>6:30 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>
@@ -153,7 +153,7 @@ const DayTwoTimeline = [
   },
   {
     label: (
-      <p className='text-[#915EFF] text-[16px] font-bold'>6:30 PM-8:00 PM</p>
+      <p className='text-[#915EFF] text-[16px] font-bold'>6:30 PM</p>
     ),
     children: (
       <div className='text-[white] text-[14px]'>

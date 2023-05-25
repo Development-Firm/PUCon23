@@ -7,10 +7,10 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { Link, useLocation } from "react-router-dom";
 
-const ServiceCard = ({ index, title, icon }) => (
+const ServiceCard=( { index, title, icon } ) => (
   <Tilt className="sm:w-[350px] w-full">
     <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+      variants={fadeIn( "right", "spring", index*0.5, 0.75 )}
       className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
     >
       <div
@@ -35,16 +35,16 @@ const ServiceCard = ({ index, title, icon }) => (
   </Tilt>
 );
 
-const About = () => {
+const AboutMobile=() => {
   return (
-    <>
+    <div className="px-[2rem]" id="about">
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
       <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
+        variants={fadeIn( "", "", 0.1, 1 )}
         className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
       >
         <p>
@@ -79,16 +79,16 @@ const About = () => {
       </motion.p>
 
       <div className="cardsm mt-20 flex flex-wrap gap-10">
-        {services.map((service, index) => (
+        {services.map( ( service, index ) => (
           <Link className="sm:w-[350px] w-full" to={service.link}>
             <ServiceCard key={service.title} index={index} {...service} />
           </Link>
-        ))}
+        ) )}
       </div>
-    </>
+    </div>
   );
 };
 
 // export default SectionWrapper(About, "about");
 // export default SectionWrapper(About, "about");
-export default About;
+export default AboutMobile;

@@ -8,6 +8,8 @@ import Rules from "./components/Rules";
 import { artificial_intellegence, competitive_programming, esports_fifa, esports_tekken, game_design, mobile_app_hackathon, pwn_ctf, web_hackathon } from "./constants";
 import EventTimeline from "./components/EventTimeline";
 import ApprovedTeams from "./components/dashboard/ApprovedTeams";
+import ProtectedRoute from './components/ProtectedRoute'
+import AboutMobile from "./components/AboutMobile";
 
 
 const Home=() => {
@@ -17,7 +19,14 @@ const Home=() => {
           <Navbar />
           <Hero />
         </div>
-      <About />
+      {
+        window.innerWidth>500?
+          <div className="max-w-7xl mx-auto">
+            <About />
+          </div>
+          :<AboutMobile />
+      }
+
       <EventTimeline />
       {/* <Sponsors /> */}
         <div className='relative z-0'>

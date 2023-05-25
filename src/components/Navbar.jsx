@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { styles } from '../styles'
 import { externalLinks, navLinks } from '../constants'
-import { logo, menu, close } from '../assets'
+import { logo, menu, close, logoHorizontal } from '../assets'
 
 const Navbar = ({ isExternalLinks, isRegisteration }) => {
   const [active, setActive] = useState('')
@@ -42,10 +42,10 @@ const Navbar = ({ isExternalLinks, isRegisteration }) => {
           }}
         >
           <img
-            src={logo}
+            src={logoHorizontal}
             alt='logo'
             className='object-contain logo'
-            style={{ width: '4rem' }}
+            id="Logo"
           />
         </Link>
 

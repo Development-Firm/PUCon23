@@ -38,13 +38,14 @@ export const navLinks = [
     title: 'About'
   },
   {
+    id: 'timeline',
+    title: 'Event Timeline'
+  },
+  {
     id: 'contact',
     title: 'Help'
   },
-  {
-    id: 'timeline',
-    title: 'Event Timeline'
-  }
+
 ]
 export const externalLinks = [
   {
