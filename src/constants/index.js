@@ -292,7 +292,6 @@ const game_design = {
 TO WIN CASH PRIZES!!!`,
   rules: [
     `• Each team must consist of three members.`,
-    `• Individual registrations will not be accepted.`,
     `• Teams are required to bring their own laptop for the competition.`,
     `• All other necessary materials and resources will be provided.`,
     `• Participants must create their games based on a specific theme provided during
